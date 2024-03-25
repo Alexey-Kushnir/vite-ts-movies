@@ -34,28 +34,31 @@ const Cast: React.FC = () => {
 
   return (
     <>
-      {castInfo && (
-        <ul>
-          {castInfo.map(
-            ({ cast_id, character, name, profile_path }: CastData) => {
-              const photo = (profile_path: string) => {
-                if (!profile_path) {
-                  return 'https://developersushant.files.wordpress.com/2015/02/no-image-available.png';
-                }
-                return `https://image.tmdb.org/t/p/original/${profile_path}`;
-              };
+      {castInfo &&
+        (castInfo.length > 0 ? (
+          <ul>
+            {castInfo.map(
+              ({ cast_id, character, name, profile_path }: CastData) => {
+                const photo = (profile_path: string) => {
+                  if (!profile_path) {
+                    return 'https://developersushant.files.wordpress.com/2015/02/no-image-available.png';
+                  }
+                  return `https://image.tmdb.org/t/p/original/${profile_path}`;
+                };
 
-              return (
-                <li key={cast_id}>
-                  <img src={photo(profile_path)} alt="" height="150px" />
-                  <p>{name}</p>
-                  <p>Character: {character}</p>
-                </li>
-              );
-            }
-          )}
-        </ul>
-      )}
+                return (
+                  <li key={cast_id}>
+                    <img src={photo(profile_path)} alt='' height='150px' />
+                    <p>{name}</p>
+                    <p>Character: {character}</p>
+                  </li>
+                );
+              }
+            )}
+          </ul>
+        ) : (
+          <p>We don't have cast for this movie.</p>
+        ))}
     </>
   );
 };
