@@ -46,7 +46,6 @@ const Movies: React.FC = () => {
 
   const updateQueryString = (e: React.BaseSyntheticEvent) => {
     e.preventDefault();
-
     const queryValue = e.target[0].value.trim();
 
     queryValue === ''
