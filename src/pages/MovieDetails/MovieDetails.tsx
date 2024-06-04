@@ -15,7 +15,7 @@ type MovieDet = {
 
 const MovieDetails: React.FC = () => {
   const [movieInfo, setMovieInfo] = useState<MovieDet>();
-  const { movieId } = useParams();
+  const { movieId } = useParams<string>();
   const location = useLocation();
 
   const backLinkHref = location.state?.from ?? '/';
@@ -45,7 +45,7 @@ const MovieDetails: React.FC = () => {
           <img
             src={`https://image.tmdb.org/t/p/original/${movieInfo.poster_path}`}
             alt={movieInfo.original_title}
-            height="350px"
+            height='350px'
           />
           <h2>
             {movieInfo.original_title} ({movieInfo.release_date.slice(0, 4)})
@@ -61,8 +61,8 @@ const MovieDetails: React.FC = () => {
               .slice(0, -2)}
           </p>
           <h4>Additional information</h4>
-          <InfLink to="cast">Cast</InfLink>
-          <InfLink to="reviews">Reviews</InfLink>
+          <InfLink to='cast'>Cast</InfLink>
+          <InfLink to='reviews'>Reviews</InfLink>
         </Container>
       )}
       <Suspense fallback={<div> Loading subpage...</div>}>

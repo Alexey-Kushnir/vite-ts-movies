@@ -13,7 +13,7 @@ const Reviews: React.FC = () => {
   const [reviews, setReviews] = useState<ReviewsData[]>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  const { movieId } = useParams();
+  const { movieId } = useParams<string>();
 
   useEffect(() => {
     const abortController = new AbortController();

@@ -13,7 +13,7 @@ type CastData = {
 
 const Cast: React.FC = () => {
   const [castInfo, setCastInfo] = useState<CastData[]>();
-  const { movieId } = useParams();
+  const { movieId } = useParams<string>();
 
   useEffect(() => {
     const abortController = new AbortController();
